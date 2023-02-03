@@ -3,12 +3,8 @@
 {{ title }}
 {% endblock %}
 {% block content %}
-<h1>Последние обновления на сайте</h1>
-{% if user.is_authenticated %}
+<h1>{{ title }}</h1>
 {% include 'posts/includes/switcher.html' %}
-{% else %}
-<hr>
-{% endif %}
 {% for post in page_obj %}
     {% include 'includes/article.html' %}
     {% if not forloop.last %}<hr>{% endif %}

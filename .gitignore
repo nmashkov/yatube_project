@@ -1,6 +1,9 @@
 .vscode/
-yatube/static/
-yatube/posts/migrations/
+
+# папки со статикой и медиа
+static/
+yatube/posts/static/
+yatube/media/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

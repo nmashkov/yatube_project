@@ -1,3 +1,7 @@
 Django==2.2.19
 pytz==2022.6
 sqlparse==0.4.3
+mixer==7.1.2
+Pillow==8.3.1
+sorl-thumbnail==12.7.0
+requests==2.26.0

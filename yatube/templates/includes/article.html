@@ -1,0 +1,27 @@
+{% load thumbnail %}
+<article>
+  <ul>
+    <li>
+    <!--Делаем проверку на наличие имени и фамилии у пользователя. Если их
+    нет, как у admin, то пишем username-->
+    {% if not post.author.get_full_name %}
+    Автор: {{ post.author }}
+    {% else %}
+    Автор: {{ post.author.get_full_name }}
+    {% endif %}
+    <a href="{% url 'posts:profile' post.author %}">все посты пользователя</a>
+    </li>
+    <li>
+    Дата публикации: {{ post.created|date:"d E Y" }}
+    </li>
+  </ul>
+  <p>{{ post.short_text|linebreaksbr }}</p>
+  {% thumbnail post.image "960x339" crop="center" upscale=True as im %}
+  <img class="card-img my-2" src="{{ im.url }}">
+  {% endthumbnail %}
+  <a href="{% url 'posts:post_detail' post.pk %}">Подробная информация</a>
+</article>
+{% if post.group %}
+<a href="{% url 'posts:group_list' post.group.slug %}">
+  Все записи группы {{ post.group.title }}</a>
+{% endif %} 
